@@ -1,6 +1,5 @@
-import 'package:barcode_scanner/dialog/dialog_barcode_scanner.dart';
+import 'package:barcode_scanner/pages/scanner_page.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,6 +16,7 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           FilledButton(
             onPressed: () {
@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
   void _redirectToScanner(BuildContext context) async {
     final dialog = Dialog.fullscreen(
       backgroundColor: Colors.black,
-      child: DialogBarcodeScanner(),
+      child: ScannerPage(),
     );
 
     final result = await showDialog(
